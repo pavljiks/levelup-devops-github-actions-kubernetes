@@ -1,0 +1,21 @@
+name: Docker build
+
+on:
+  push:
+    branches:
+    - '!main'
+  pull_request:
+    - '**'
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Docker build a PR
+      run: |
+        docker build . --tag levelupdevops-pr:${{ github.sha }}

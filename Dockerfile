@@ -9,7 +9,7 @@ RUN dotnet restore
 COPY . .
 RUN dotnet build -c Release
 RUN dotnet test -c Release
-RUN dotnet public -c Release -o /dist
+RUN dotnet publish -c Release -o /dist
 
 
 # production "server" image
